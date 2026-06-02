@@ -1,0 +1,141 @@
+/* --- Premium Navbar --- */
+.custom-navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  padding: 30px 0;
+  transition: var(--transition-smooth);
+  background: transparent;
+}
+
+.custom-navbar.scrolled {
+  background: rgba(5, 5, 5, 0.85);
+  backdrop-filter: blur(20px);
+  padding: 15px 0;
+  border-bottom: 1px solid var(--glass-stroke);
+}
+
+.royal-logo {
+  display: flex !important;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none !important;
+  color: white !important;
+  transition: var(--transition-smooth);
+}
+
+.logo-icon {
+  width: 45px;
+  height: 45px;
+  background: var(--secondary);
+  color: var(--dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem;
+  font-weight: 900;
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+  text-shadow: none;
+}
+
+.logo-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+}
+
+.brand-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  color: white;
+}
+
+.brand-subtitle {
+  font-size: 0.65rem;
+  letter-spacing: 4px;
+  color: var(--secondary);
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.royal-logo:hover {
+  transform: scale(1.02);
+}
+
+.royal-logo:hover .logo-icon {
+  background: white;
+}
+
+
+.nav-links-container .nav-link {
+  color: #fff !important;
+  font-weight: 500;
+  font-size: 0.85rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  transition: var(--transition-fast);
+  opacity: 0.6;
+}
+
+.nav-links-container .nav-link:hover,
+.nav-links-container .nav-link.active {
+  opacity: 1;
+  color: var(--secondary) !important;
+}
+
+.login-btn {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.register-btn {
+  background: var(--secondary);
+  padding: 10px 25px;
+  border-radius: 4px;
+  color: var(--darker);
+  text-decoration: none;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 1px;
+  transition: var(--transition-fast);
+}
+
+.register-btn:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.1);
+  box-shadow: 0 10px 20px rgba(212, 175, 55, 0.2);
+}
+
+/* User Dropdown */
+.user-dropdown-custom .dropdown-toggle {
+  background: var(--glass) !important;
+  border: 1px solid var(--glass-stroke) !important;
+  color: var(--secondary) !important;
+  border-radius: 4px !important;
+  padding: 6px 20px !important;
+}
+
+.user-dropdown-custom .dropdown-menu {
+  background: var(--darker) !important;
+  border: 1px solid var(--glass-stroke) !important;
+  box-shadow: var(--shadow-lg) !important;
+}
+
+.user-dropdown-custom .dropdown-item {
+  color: var(--light) !important;
+  font-size: 0.9rem !important;
+  padding: 10px 20px !important;
+}
+
+.user-dropdown-custom .dropdown-item:hover {
+  background: var(--glass-gold) !important;
+  color: var(--secondary) !important;
+}

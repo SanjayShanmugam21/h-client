@@ -1,0 +1,19 @@
+:root {
+  --primary: #8b1d0f;
+  /* Deep Crimson */
+  --secondary: #d4af37;
+  /* Metallic Gold */
+  --accent: #ff4d4d;
+  /* Vibrant Red */
+  --dark: #0a0a0a;
+  /* True Black */
+  --darker: #050505;
+  --light: #f8f9fa;
+  --glass: rgba(255, 255, 255, 0.03);
+  --glass-gold: rgba(212, 175, 55, 0.05);
+  --glass-stroke: rgba(255, 255, 255, 0.08);
+  --shadow-sm: 0 10px 30px rgba(0, 0, 0, 0.5);
+  --shadow-lg: 0 30px 60px rgba(0, 0, 0, 0.8);
+  --transition-smooth: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  --transition-fast: all 0.3s ease;
+}
