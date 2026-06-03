@@ -28,10 +28,16 @@ const CustomNavbar = () => {
       <Container>
         {/* Logo */}
         <Navbar.Brand as={Link} to="/" className="royal-logo">
-          <div className="logo-icon">H</div>
+          <div className="logo-icon">
+            <svg width="35" height="35" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="25" cy="25" r="23" stroke="currentColor" strokeWidth="2" />
+              <path d="M18 15V35M32 15V35M18 25H32" stroke="currentColor" strokeWidth="4" strokeLinecap="round" />
+              <path d="M15 15H21M29 15H35M15 35H21M29 35H35" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+            </svg>
+          </div>
           <div className="logo-text">
-            <span className="brand-name">HAYAATH</span>
-            <span className="brand-subtitle">HOTEL ROYAL</span>
+            <span className="brand-name">HOTEL HAYAATH</span>
+            <span className="brand-subtitle">THE ROYAL EXPERIENCE</span>
           </div>
         </Navbar.Brand>
 

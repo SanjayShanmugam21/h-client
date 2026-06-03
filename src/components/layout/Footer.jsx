@@ -12,7 +12,7 @@ const Footer = () => (
         <a href="#" className="text-white text-decoration-none small">Facebook</a>
         <a href="#" className="text-white text-decoration-none small">Twitter</a>
       </div>
-      <p className="small text-white-25 m-0">&copy; 2026 Hayaath Palace. Crafted with Passion.</p>
+      <p className="small text-white-25 m-0">&copy; 2026 Hotel Hayaath. Crafted with Passion.</p>
     </div>
   </footer>
 );

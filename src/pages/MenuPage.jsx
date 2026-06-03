@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { X } from "lucide-react";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 import api from "../services/api";
@@ -15,6 +16,7 @@ const HotelHayaathMenu = () => {
   const [foods, setFoods] = useState([]);
   const [menuCards, setMenuCards] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState(null); // null means "All"
+  const [selectedCard, setSelectedCard] = useState(null); // For modal view
   const [loading, setLoading] = useState(true);
   const { addToCart } = useCart();
 
@@ -107,7 +109,11 @@ const HotelHayaathMenu = () => {
             >
               {menuCards.map((card) => (
                 <SwiperSlide key={card._id}>
-                  <div className="menu-card-slide-item">
+                  <div
+                    className="menu-card-slide-item"
+                    onClick={() => setSelectedCard(card)}
+                    style={{ cursor: 'pointer' }}
+                  >
                     <img src={card.image} alt={card.title} className="card-img-fit" />
                     <div className="card-title-overlay">
                       <h5 className="mb-1 font-playfair">{card.title}</h5>
@@ -192,6 +198,42 @@ const HotelHayaathMenu = () => {
           </div>
         )}
       </div>
+
+      {/* --- PREMIUM MODAL VIEW --- */}
+      <AnimatePresence>
+        {selectedCard && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="menu-modal-overlay"
+            onClick={() => setSelectedCard(null)}
+          >
+            <motion.button
+              className="modal-close-btn"
+              onClick={() => setSelectedCard(null)}
+              whileHover={{ scale: 1.1, rotate: 90 }}
+              whileTap={{ scale: 0.9 }}
+            >
+              <X size={32} />
+            </motion.button>
+
+            <motion.div
+              className="modal-image-container"
+              initial={{ scale: 0.8, y: 20 }}
+              animate={{ scale: 1, y: 0 }}
+              exit={{ scale: 0.8, y: 20 }}
+              onClick={(e) => e.stopPropagation()}
+            >
+              <img src={selectedCard.image} alt={selectedCard.title} className="modal-main-img" />
+              <div className="modal-caption text-center p-4">
+                <h2 className="font-playfair gold-text mb-2">{selectedCard.title}</h2>
+                <p className="text-white-50 m-0">{selectedCard.description}</p>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap');
@@ -380,6 +422,50 @@ const HotelHayaathMenu = () => {
           .item-img-container { margin: 0 auto; width: 140px; height: 140px; }
           .item-info .d-flex { flex-direction: column; align-items: center !important; }
         }
+
+        /* Modal Styles */
+        .menu-modal-overlay {
+          position: fixed;
+          inset: 0;
+          background: rgba(0, 0, 0, 0.95);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          z-index: 9999;
+          padding: 20px;
+          backdrop-filter: blur(10px);
+        }
+        .modal-close-btn {
+          position: absolute;
+          top: 30px;
+          right: 30px;
+          background: transparent;
+          border: none;
+          color: var(--gold);
+          cursor: pointer;
+          z-index: 10001;
+        }
+        .modal-image-container {
+          max-width: 90%;
+          max-height: 90vh;
+          position: relative;
+          background: #080808;
+          border-radius: 20px;
+          overflow: hidden;
+          border: 1px solid rgba(212, 175, 55, 0.3);
+          box-shadow: 0 0 50px rgba(212, 175, 55, 0.1);
+        }
+        .modal-main-img {
+          max-width: 100%;
+          max-height: 70vh;
+          object-fit: contain;
+          display: block;
+        }
+        .modal-caption {
+          background: linear-gradient(to top, #000 0%, #080808 100%);
+          border-top: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
       `}</style>
     </div>
   );
